@@ -6,7 +6,7 @@ import { ReactNode, useState } from 'react';
 import MobileNav from '@/components/MobileNav';
 
 interface MainNavProps {
-  items?: NavItem[];
+  items: NavItem[];
   children?: ReactNode;
 }
 
@@ -34,7 +34,7 @@ const MainNav = ({ items }: MainNavProps) => {
       <button className="md:hidden" onClick={() => setShowMobileMenu(!showMobileMenu)}>
         <span>メニュー</span>
       </button>
-      {showMobileMenu && <MobileNav />}
+      {showMobileMenu && <MobileNav items={items} />}
     </div>
   );
 };

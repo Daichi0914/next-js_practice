@@ -1,7 +1,26 @@
-const MobileNav = () => {
+import { siteConfig } from '@/config/site';
+import Link from 'next/link';
+import { NavItem } from '@/types';
+
+interface MobileNavProps {
+  items: NavItem[];
+}
+
+const MobileNav = ({ items }: MobileNavProps) => {
   return (
-    <div>
-      <div>Mobile Nav</div>
+    <div className="fixed top-16 inset-0 z-50 p-6 md:hidden animate-in slide-in-from-bottom-80">
+      <div className="grid gap-6 bg-white p-4 text-popover-foreground shadow-md">
+        <Link href={"/"} className="font-bold">
+          {siteConfig.name}
+        </Link>
+        <nav className="text-sm flex gap-4">
+          {items.map((item, index) =>
+            <Link key={index} href={item.href}>
+              {item.title}
+            </Link>
+          )}
+        </nav>
+      </div>
     </div>
   );
 };
