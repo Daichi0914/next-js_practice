@@ -103,6 +103,12 @@ const page = () => {
             </div>
           )}
         </div>
+
+        <div className="mx-auto md:max-w-[58rem] text-center">
+          <p className="text-muted-foreground sm:text-lg sm:leading-7">
+            Post Writerはログインするとブログ投稿ができるようになります。
+          </p>
+        </div>
       </section>
     </>
   );
