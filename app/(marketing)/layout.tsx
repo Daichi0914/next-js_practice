@@ -2,8 +2,9 @@ import React from 'react';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { buttonVariants } from '@/components/ui/button';
-import MainNav from '@/components/MainNav';
 import { marketingConfig } from '@/config/marketing';
+import MainNav from '@/components/MainNav';
+import Footer from '@/components/TopPage/Footer';
 
 const MarketingLayout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -25,6 +26,7 @@ const MarketingLayout = ({ children }: { children: React.ReactNode }) => {
         </div>
       </header>
       <main>{children}</main>
+      <Footer />
     </div>
   );
 };
