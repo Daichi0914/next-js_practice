@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { buttonVariants } from '@/components/ui/button';
 import { marketingConfig } from '@/config/marketing';
-import MainNav from '@/components/MainNav';
+import MainNav from '@/components/TopPage/MainNav';
 import Footer from '@/components/TopPage/Footer';
 
 const MarketingLayout = ({ children }: { children: React.ReactNode }) => {
