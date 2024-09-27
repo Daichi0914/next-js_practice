@@ -1,5 +1,11 @@
 import { allPosts } from 'contentlayer/generated';
 import { notFound } from 'next/navigation';
+import { format } from 'date-fns';
+import Image from 'next/image';
+import Link from 'next/link';
+import { buttonVariants } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
+import Mdx from '@/components/Blog/Mdx';
 
 const getPostFromSlug = async (slug: string) => {
   return allPosts.find(post => post.slugAsParams === slug);
@@ -14,10 +20,31 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
   }
 
   return (
-    <div>
-      <div>{post.title}</div>
-      <div>{post.description}</div>
-    </div>
+    <article className="container max-w-3xl p-6 lg:p-10 mx-auto">
+      <div>
+        {post.date && (<time>Published on {format(post.date, 'yyyy/MM/dd')}</time>)}
+        <h1 className="mt-2 font-extrabold text-4xl lg:text-5xl leading-tight">
+          {post.title}
+        </h1>
+      </div>
+      {post.image && <Image
+        src={post.image}
+        alt={post.title}
+        width={720}
+        height={405}
+        className="my-8 border rounded-md bg-muted"
+      />}
+      <Mdx code={post.body.code} />
+      <hr className="mt-12" />
+      <div className="py-6 text-center lg:py-10">
+        <Link
+          href={'/blog'}
+          className={cn(buttonVariants({ variant: 'ghost' }))}
+        >
+          すべての記事を見る
+        </Link>
+      </div>
+    </article>
   );
 };
 
