@@ -13,7 +13,7 @@ const Mdx = ({ code }: { code: string }) => {
   const Component = useMDXComponent(code);
 
   return (
-    <div>
+    <div className="prose lg:prose-xl max-w-full prose-stone">
       <Component components={components} />
     </div>
   );
