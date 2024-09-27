@@ -7,6 +7,7 @@ import { siteConfig } from '@/config/site';
 
 const fontNotoSansJP = Noto_Sans_JP({ subsets: ['latin'] });
 
+// MEMO: Next.jsが認識する関数名（https://nextjs.org/docs/app/building-your-application/optimizing/metadata）
 export const metadata: Metadata = {
   title: {
     default: siteConfig.name,

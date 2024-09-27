@@ -6,9 +6,39 @@ import Link from 'next/link';
 import { buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import Mdx from '@/components/Blog/Mdx';
+import { Metadata } from 'next';
+import { siteConfig } from '@/config/site';
 
 const getPostFromSlug = async (slug: string) => {
   return allPosts.find(post => post.slugAsParams === slug);
+};
+
+// MEMO: Next.jsが認識する関数名（https://nextjs.org/docs/app/api-reference/functions/generate-metadata）
+export const generateMetadata = async ({ params }: { params: { slug: string } }): Promise<Metadata> => {
+  const page = await getPostFromSlug(params.slug);
+  if (!page) {
+    return {};
+  }
+  return {
+    title: page.title,
+    description: page.description,
+    openGraph: {
+      type: "article",
+      locale: "ja",
+      url: siteConfig.url,
+      title: siteConfig.name,
+      description: siteConfig.description,
+      siteName: siteConfig.name,
+      images: [`${siteConfig.url}/og.png`]
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: siteConfig.name,
+      description: siteConfig.description,
+      images: [`${siteConfig.url}/og.png`],
+      creator: '@EarthPro2'
+    }
+  };
 };
 
 const PostPage = async ({ params }: { params: { slug: string } }) => {
