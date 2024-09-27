@@ -19,7 +19,11 @@ export const Post = defineDocumentType(() => ({
       type: 'boolean',
       default: true
     },
-    images: {
+    image: {
+      type: 'string',
+      required: true
+    },
+    author: {
       type: 'string',
       required: true
     }
