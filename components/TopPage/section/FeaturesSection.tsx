@@ -1,38 +1,33 @@
-import NextIcon from '@/assets/svg/NextIcon';
-import ReactIcon from '@/assets/svg/ReactIcon';
-import PlanetScaleIcon from '@/assets/svg/PlanetScaleIcon';
-import TailwindIcon from '@/assets/svg/TailwindIcon';
-import OAuthIcon from '@/assets/svg/OAuthIcon';
-import StripeIcon from '@/assets/svg/StripeIcon';
+import Icons from '@/components/icons';
 
 const features = [
   {
-    icon: <NextIcon />,
+    icon: <Icons.next width="45" height="45" />,
     title: 'Next.js',
     body: 'Lorem, ipsum dolor site amet consectetur adipiscing.'
   },
   {
-    icon: <ReactIcon />,
+    icon: <Icons.react width="45" height="45" />,
     title: 'React',
     body: 'Lorem, ipsum dolor site amet consectetur adipiscing.'
   },
   {
-    icon: <PlanetScaleIcon />,
+    icon: <Icons.planetScale width="45" height="45" />,
     title: 'PlanetScale',
     body: 'Lorem, ipsum dolor site amet consectetur adipiscing.'
   },
   {
-    icon: <TailwindIcon />,
+    icon: <Icons.tailwind width="45" height="45" />,
     title: 'TailwindCSS',
     body: 'Lorem, ipsum dolor site amet consectetur adipiscing.'
   },
   {
-    icon: <OAuthIcon />,
+    icon: <Icons.oAuth width="45" height="45" />,
     title: 'OAuth',
     body: 'Lorem, ipsum dolor site amet consectetur adipiscing.'
   },
   {
-    icon: <StripeIcon />,
+    icon: <Icons.stripe width="45" height="45" />,
     title: 'Stripe',
     body: 'Lorem, ipsum dolor site amet consectetur adipiscing.'
   }
