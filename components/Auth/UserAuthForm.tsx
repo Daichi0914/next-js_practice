@@ -1,8 +1,11 @@
+"use client"
+
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { cn } from '@/lib/utils';
 import { buttonVariants } from '@/components/ui/button';
 import Icons from '@/components/icons';
+import { signIn } from 'next-auth/react';
 
 const UserAuthForm = () => {
   return (
@@ -30,7 +33,10 @@ const UserAuthForm = () => {
         </div>
       </div>
 
-      <button className={cn(buttonVariants({ variant: 'outline' }))}>
+      <button
+        className={cn(buttonVariants({ variant: 'outline' }))}
+        onClick={() => signIn("github")}
+      >
         <Icons.github width="20" height="20" className="mr-2" />
         GitHub
       </button>
