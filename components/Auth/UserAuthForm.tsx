@@ -1,4 +1,4 @@
-"use client"
+'use client';
 
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
@@ -6,8 +6,16 @@ import { cn } from '@/lib/utils';
 import { buttonVariants } from '@/components/ui/button';
 import Icons from '@/components/icons';
 import { signIn } from 'next-auth/react';
+import { useState } from 'react';
 
 const UserAuthForm = () => {
+  const [isGithubLoading, setIsGithubLoading] = useState<boolean>(false);
+
+  const handleGitHubClick = () => {
+    setIsGithubLoading(true);
+    signIn('github').then();
+  };
+
   return (
     <div className="flex flex-col gap-6">
       <form>
@@ -35,9 +43,13 @@ const UserAuthForm = () => {
 
       <button
         className={cn(buttonVariants({ variant: 'outline' }))}
-        onClick={() => signIn("github")}
+        onClick={handleGitHubClick}
       >
-        <Icons.github width="20" height="20" className="mr-2" />
+        {isGithubLoading ? (
+          <Icons.spinner width="20" height="20" className="mr-2 animate-spin" />
+        ) : (
+          <Icons.github width="20" height="20" className="mr-2" />
+        )}
         GitHub
       </button>
     </div>
