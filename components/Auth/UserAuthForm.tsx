@@ -10,10 +10,16 @@ import { useState } from 'react';
 
 const UserAuthForm = () => {
   const [isGithubLoading, setIsGithubLoading] = useState<boolean>(false);
+  const [isGoogleLoading, setIsGoogleLoading] = useState<boolean>(false);
 
   const handleGitHubClick = () => {
     setIsGithubLoading(true);
     signIn('github').then();
+  };
+
+  const handleGoogleClick = () => {
+    setIsGoogleLoading(true);
+    signIn('google').then();
   };
 
   return (
@@ -41,17 +47,31 @@ const UserAuthForm = () => {
         </div>
       </div>
 
-      <button
-        className={cn(buttonVariants({ variant: 'outline' }))}
-        onClick={handleGitHubClick}
-      >
-        {isGithubLoading ? (
-          <Icons.spinner width="20" height="20" className="mr-2 animate-spin" />
-        ) : (
-          <Icons.github width="20" height="20" className="mr-2" />
-        )}
-        GitHub
-      </button>
+      <div className="flex flex-col gap-3">
+        <button
+          className={cn(buttonVariants({ variant: 'outline' }))}
+          onClick={handleGitHubClick}
+        >
+          {isGithubLoading ? (
+            <Icons.spinner width="20" height="20" className="mr-2 animate-spin" />
+          ) : (
+            <Icons.github width="20" height="20" className="mr-2" />
+          )}
+          GitHub
+        </button>
+
+        <button
+          className={cn(buttonVariants({ variant: 'outline' }))}
+          onClick={handleGoogleClick}
+        >
+          {isGoogleLoading ? (
+            <Icons.spinner width="20" height="20" className="mr-2 animate-spin" />
+          ) : (
+            <Icons.google width="20" height="20" className="mr-2" />
+          )}
+          Google
+        </button>
+      </div>
     </div>
   );
 };
