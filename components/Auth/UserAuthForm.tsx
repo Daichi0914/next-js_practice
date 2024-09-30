@@ -8,7 +8,7 @@ import Icons from '@/components/icons';
 import { signIn } from 'next-auth/react';
 import { useState } from 'react';
 
-const UserAuthForm = () => {
+const UserAuthForm = ({ buttonText }: { buttonText: string }) => {
   const [isGithubLoading, setIsGithubLoading] = useState<boolean>(false);
   const [isGoogleLoading, setIsGoogleLoading] = useState<boolean>(false);
 
@@ -31,7 +31,7 @@ const UserAuthForm = () => {
             <Input id="email" placeholder="name@example.com" type="email" />
           </div>
           <button className={cn(buttonVariants())}>
-            メールアドレスでログイン
+            {buttonText}
           </button>
         </div>
       </form>

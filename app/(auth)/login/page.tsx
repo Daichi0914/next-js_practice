@@ -3,8 +3,8 @@ import UserAuthForm from '@/components/Auth/UserAuthForm';
 
 const Login = () => {
   return (
-    <div className="container flex flex-col justify-center h-screen items-center w-screen">
-      <div className="mx-auto w-full sm:w-[350px] flex flex-col justify-center space-y-6">
+    <div className="container flex flex-col justify-center h-screen items-center w-screen mx-auto">
+      <div className="mx-auto w-full sm:w-[350px] flex flex-col justify-center space-y-6 px-6 sm:px-0">
         <div className="text-center space-y-2">
           <h1 className="text-2xl font-semibold tracking-tight">
             Welcome Back
@@ -14,7 +14,7 @@ const Login = () => {
           </p>
         </div>
 
-        <UserAuthForm />
+        <UserAuthForm buttonText="メールアドレスでログイン" />
 
         <p className="text-muted-foreground px-8 text-center text-sm">
           <Link href={"/register"} className="underline underline-offset-4">
